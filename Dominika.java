@@ -34,15 +34,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Dominika implements CzytanieExcela {
 
 	
-	HSSFRow row;
-    HSSFCell cell;
+		HSSFRow row;
+    		HSSFCell cell;
 		int value1;
 		static ArrayList<String> nipy = new ArrayList<String>();				
 		int i;	
 		DesiredCapabilities ieCaps;
 	
-	    static File plikznipami;
-	    LocalDate data = LocalDate.now();
+	   	 static File plikznipami;
+	    	LocalDate data = LocalDate.now();
 	    
 	
 	    
@@ -85,26 +85,7 @@ public class Dominika implements CzytanieExcela {
 		
 		private void check() throws InterruptedException, IOException {
 			
-			// HtmlUnitDriver driver = new HtmlUnitDriver();
 			
-	
-			
-			
-		/*	
-			System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
-			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-			//ieCaps.setCapability(InternetExplorerDriver.INITIAL_BROWSER_URL, "http://ey-home.ey.net/wps/myportal?Mode=DEFAULT");
-			
-			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
-
-			capabilities.setCapability(InternetExplorerDriver.SILENT,true);
-			
-			capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
-			WebDriver driver = new InternetExplorerDriver(capabilities);
-			
-			driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-			
-			driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);*/
 	
 	
 	WebDriver driver;
@@ -149,8 +130,7 @@ public class Dominika implements CzytanieExcela {
 			Thread.sleep(1000);
 			 
 			String sprawdzenie = driver.findElement(By.id("caption2_b-3")).getText();
-			//WebDriverWait sprawdzenie1 = new WebDriverWait(driver,100);
-			//sprawdzenie1.until(ExpectedConditions.visibilityOfElementLocated(By.id("caption2_b-3")));
+			
 			System.out.println(sprawdzenie);
 			if(sprawdzenie.contains("nie jest"))
 					sprawdzenie="NIEZAREJESTROWANY";
@@ -164,7 +144,7 @@ public class Dominika implements CzytanieExcela {
 			cell = worksheet.getRow(i+1).getCell(3, MissingCellPolicy.CREATE_NULL_AS_BLANK);
 			
 			
-			cell.setCellValue(sprawdzenie+" na dzieñ "+data);
+			cell.setCellValue(sprawdzenie+" na dzieÃ± "+data);
 			fsIP.close();
 			FileOutputStream output_file = new FileOutputStream(plikznipami);
 			wb.write(output_file);
@@ -175,10 +155,7 @@ public class Dominika implements CzytanieExcela {
 			
 			WebElement wyczysc = driver.findElement(By.id("b-9"));
 			
-			//Wait<WebDriver> wait = new WebDriverWait(driver, 100);
-			//wait.until(ExpectedConditions.presenceOfElementLocated(By.id("b-9")));
-			//wait.until(ExpectedConditions.elementToBeClickable(By.id("b-9")));
-			//wait.until(ExpectedConditions.stalenessOf(wyczysc));
+			
 				
 			Thread.sleep(2000);
 		wyczysc.click();
@@ -210,7 +187,7 @@ public class Dominika implements CzytanieExcela {
 			
 			app.check();
 			
-			gui.displayInfo("Sprawdzenie zakoñczy³o siê.Plik zaktualizowany", "Koniec");
+			gui.displayInfo("Sprawdzenie zakoÃ±czyÂ³o siÃª.Plik zaktualizowany", "Koniec");
 			
 			gui.closeWindow();
 			
